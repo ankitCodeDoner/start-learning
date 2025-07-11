@@ -1,45 +1,36 @@
-import PageTitle from "@/components/PageTitle";
+import UserInfo from "@/components/UserInfo";
 import React from "react";
-import { Image, StyleSheet, useColorScheme, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { ScrollView, StyleSheet, Text } from "react-native";
 
 const Home = () => {
-  const colorScheme = useColorScheme();
-
-  const theamStyle =
-    colorScheme === "light" ? styles.textLight : styles.textDark;
-
-  const insets = useSafeAreaInsets();
   return (
-    <View
-      style={{
-        flex: 1,
-        padding: insets.top,
-      }}
-    >
-      <PageTitle title="Home" />
-      <PageTitle title="About" />
-      <PageTitle title="Contact" />
-      <PageTitle title="Service" />
-      <PageTitle title="Privacy policy" />
-      <PageTitle title="Term and Condition" />
-
-      <Image
-        source={require("../assets/images/images.jpg")}
-        style={{ width: "100%" }}
-        resizeMode="contain"
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <Text>User Information</Text>
+      <UserInfo
+        name="Ankit"
+        email="abc@gmail.com"
+        phone="1234567890"
+        age={22}
+        role="Admin"
       />
-    </View>
+      <UserInfo
+        name="Ajay"
+        email="ajy@gmail.com"
+        phone="12898967890"
+        age={20}
+        role="employee"
+      />
+      <UserInfo
+        name="Vishwas"
+        email="vishu@gmail.com"
+        phone="8989898989"
+        age={22}
+        role="super admin"
+      />
+    </ScrollView>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({
-  textLight: {
-    color: "red",
-  },
-  textDark: {
-    color: "green",
-  },
-});
+const styles = StyleSheet.create({});
