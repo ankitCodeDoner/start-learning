@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Text>User Information</Text>
-      <UserInfo user={user} />
+      <UserInfo {...user} />
       {/* <UserInfo
         name="Ajay"
         email="ajy@gmail.com"
