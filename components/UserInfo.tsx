@@ -2,21 +2,23 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 interface Props {
-  name: string;
-  age: number;
-  phone: string;
-  email: string;
-  role: string;
+  user: {
+    name: string;
+    age: number;
+    phone: string;
+    email: string;
+    role: string;
+  };
 }
 
-const UserInfo = ({ name, age, phone, email, role }: Props) => {
+const UserInfo = ({ user }: Props) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Name: {name}</Text>
-      <Text style={styles.text}>Email: {email} </Text>
-      <Text style={styles.text}>Phone No.: {phone}</Text>
-      <Text style={styles.text}>Age: {age}</Text>
-      <Text style={styles.text}>Role: {role}</Text>
+      <Text style={styles.text}>Name: {user.name}</Text>
+      <Text style={styles.text}>Email: {user.email} </Text>
+      <Text style={styles.text}>Phone No.: {user.phone}</Text>
+      <Text style={styles.text}>Age: {user.age}</Text>
+      <Text style={styles.text}>Role: {user.role}</Text>
     </View>
   );
 };

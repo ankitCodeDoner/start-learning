@@ -3,17 +3,19 @@ import React from "react";
 import { ScrollView, StyleSheet, Text } from "react-native";
 
 const Home = () => {
+  const user = {
+    name: "John Doe",
+    email: "john.doe@example.com",
+    phone: "1234567890",
+    age: 30,
+    role: "Admin",
+  };
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Text>User Information</Text>
-      <UserInfo
-        name="Ankit"
-        email="abc@gmail.com"
-        phone="1234567890"
-        age={22}
-        role="Admin"
-      />
-      <UserInfo
+      <UserInfo user={user} />
+      {/* <UserInfo
         name="Ajay"
         email="ajy@gmail.com"
         phone="12898967890"
@@ -26,7 +28,7 @@ const Home = () => {
         phone="8989898989"
         age={22}
         role="super admin"
-      />
+      /> */}
     </ScrollView>
   );
 };
