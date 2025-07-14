@@ -1,34 +1,60 @@
-import UserInfo from "@/components/UserInfo";
+import PageTitle from "@/components/PageTitle";
 import React from "react";
-import { ScrollView, StyleSheet, Text } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+
+const pageTitles = [
+  {
+    title: "Home",
+    subTitle: "Welcome to our home page",
+    discription:
+      "This is our home page, where you can find all the information you need to get started with",
+    course: {
+      id: 1,
+      name: "Course Title",
+    },
+  },
+  {
+    title: "Home",
+    subTitle: "Welcome to our home page",
+    discription:
+      "This is our home page, where you can find all the information you need to get started with",
+    course: {
+      id: 1,
+      name: "Course Title",
+    },
+  },
+];
 
 const Home = () => {
-  const user = {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone: "1234567890",
-    age: 30,
-    role: "Admin",
-  };
-
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <Text>User Information</Text>
-      <UserInfo {...user} />
-      {/* <UserInfo
-        name="Ajay"
-        email="ajy@gmail.com"
-        phone="12898967890"
-        age={20}
-        role="employee"
+      <View>
+        {pageTitles.map((item, index) => (
+          <PageTitle
+            title={item.title}
+            subtitle={item.subTitle}
+            discreption={item.discription}
+            course={item.course}
+          />
+        ))}
+      </View>
+      <View>
+        <Text>FLateList</Text>
+      </View>
+      <FlatList
+        data={pageTitles}
+        renderItem={({ item }) => (
+          <PageTitle
+            title={item.title}
+            subtitle={item.subTitle}
+            discreption={item.discription}
+            course={item.course}
+          />
+        )}
+        numColumns={2}
+        keyExtractor={(item) => item.course.id.toString()}
+        columnWrapperStyle={{ gap: 10 }}
       />
-      <UserInfo
-        name="Vishwas"
-        email="vishu@gmail.com"
-        phone="8989898989"
-        age={22}
-        role="super admin"
-      /> */}
     </ScrollView>
   );
 };
