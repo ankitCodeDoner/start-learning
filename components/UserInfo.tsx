@@ -1,22 +1,33 @@
+import { Link } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 interface Props {
+  id: number;
   name: string;
-  age: number;
+  address: string;
   phone: string;
   email: string;
-  role: string;
+  company: string;
 }
 
-const UserInfo = ({ name, age, phone, email, role }: Props) => {
+const UserInfo = ({ id, name, address, phone, email, company }: Props) => {
   return (
     <View style={styles.container}>
+      <Text style={styles.text}>ID: {id}</Text>
       <Text style={styles.text}>Name: {name}</Text>
       <Text style={styles.text}>Email: {email} </Text>
       <Text style={styles.text}>Phone No.: {phone}</Text>
-      <Text style={styles.text}>Age: {age}</Text>
-      <Text style={styles.text}>Role: {role}</Text>
+      <Text style={styles.text}>Address: {address}</Text>
+      <Text style={styles.text}>Company: {company}</Text>
+      <Link
+        href={{
+          pathname: "/details/[id]",
+          params: { id: id },
+        }}
+      >
+        view Details
+      </Link>
     </View>
   );
 };

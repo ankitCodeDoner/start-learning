@@ -1,62 +1,28 @@
-import PageTitle from "@/components/PageTitle";
+import { userData } from "@/components/data";
+import UserInfo from "@/components/UserInfo";
 import React from "react";
 import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
-
-const pageTitles = [
-  {
-    id: 1,
-    title: "Home",
-    subTitle: "Welcome to our home page",
-    discription:
-      "This is our home page, where you can find all the information you need to get started with",
-    course: {
-      id: 1,
-      name: "Course Title",
-    },
-  },
-  {
-    id: 2,
-    title: "About",
-    subTitle: "Welcome to our home page",
-    discription:
-      "This is our home page, where you can find all the information you need to get started with",
-    course: {
-      id: 1,
-      name: "Course Title",
-    },
-  },
-];
 
 const Home = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      {/* <View>
-        {pageTitles.map((item, index) => (
-          <PageTitle
-            id={item.id}
-            title={item.title}
-            subtitle={item.subTitle}
-            discreption={item.discription}
-            course={item.course}
-          />
-        ))}
-      </View> */}
       <View>
-        <Text>FLateList</Text>
+        <Text>User List</Text>
       </View>
       <FlatList
-        data={pageTitles}
+        data={userData}
         renderItem={({ item }) => (
-          <PageTitle
+          <UserInfo
             id={item.id}
-            title={item.title}
-            subtitle={item.subTitle}
-            discreption={item.discription}
-            course={item.course}
+            name={item.name}
+            address={item.address.city}
+            phone={item.phone}
+            email={item.email}
+            company={item.company.name}
           />
         )}
         numColumns={2}
-        keyExtractor={(item) => item.course.id.toString()}
+        keyExtractor={(item) => item.id.toString()}
         columnWrapperStyle={{ gap: 10 }}
       />
     </ScrollView>

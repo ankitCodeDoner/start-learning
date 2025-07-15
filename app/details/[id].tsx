@@ -1,25 +1,26 @@
-import PageTitle from "@/components/PageTitle";
+import { userData } from "@/components/data";
+import UserInfo from "@/components/UserInfo";
 import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
-const pageTitles = [
-  {
-    id: 1,
-    title: "Home",
-  },
-  {
-    id: 2,
-    title: "About",
-  },
-];
 
 export default function DetailsScreen() {
   const { id } = useLocalSearchParams();
-  const courseData = pageTitles?.find((item) => Number(item.id) == Number(id));
-  console.log(courseData, "courseData");
+  const singleUser = userData.find((user) => user.id === Number(id));
+  console.log(singleUser);
+
+  const { name, email, phone, company, address } = singleUser;
   return (
     <View style={styles.container}>
       <Text>Details of user {id} </Text>
-      {courseData && <PageTitle id={2} title={courseData?.title} />}
+
+      <UserInfo
+        id={Number(id)}
+        name={name}
+        address={address.city}
+        phone={phone}
+        email={email}
+        company={company.name}
+      />
     </View>
   );
 }
