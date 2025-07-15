@@ -4,6 +4,7 @@ import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const pageTitles = [
   {
+    id: 1,
     title: "Home",
     subTitle: "Welcome to our home page",
     discription:
@@ -14,7 +15,8 @@ const pageTitles = [
     },
   },
   {
-    title: "Home",
+    id: 2,
+    title: "About",
     subTitle: "Welcome to our home page",
     discription:
       "This is our home page, where you can find all the information you need to get started with",
@@ -28,16 +30,17 @@ const pageTitles = [
 const Home = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
-      <View>
+      {/* <View>
         {pageTitles.map((item, index) => (
           <PageTitle
+            id={item.id}
             title={item.title}
             subtitle={item.subTitle}
             discreption={item.discription}
             course={item.course}
           />
         ))}
-      </View>
+      </View> */}
       <View>
         <Text>FLateList</Text>
       </View>
@@ -45,6 +48,7 @@ const Home = () => {
         data={pageTitles}
         renderItem={({ item }) => (
           <PageTitle
+            id={item.id}
             title={item.title}
             subtitle={item.subTitle}
             discreption={item.discription}
